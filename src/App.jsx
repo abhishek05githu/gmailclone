@@ -19,8 +19,68 @@ import {
 import "./App.css";
 
 const emails = [
-   {
+  {
     id: 1,
+    sender: "Bank Of India",
+    email: "boi.crmadm​in@bankofindia.co.in",
+    initial: "B",
+    color: "#e8675c",
+    subject: "Notice:Lien/hold placed on your account",
+    preview: "Date : 09/06/2026 5:30:58 PM Ref No. : BI26274220990641",
+    date: "06 Sep",
+    fullDate: "06 Sep 2026, 5:30 pm",
+    body: [
+      "Date : 09/06/2026 5:30:58 PM",
+      "Ref No. : BI26274220990641",
+      "Name : ABHISHEK KUMAR",
+      "Address : S O ABHIMANYU KUMAR NAUBATPUR, PATNA, BIHAR, 801109",
+      "",
+      "Dear Customer,",
+      "",
+      "We would like to inform you that a lien/hold has been placed on your account as per the notification received on the National Cyber Reporting Portal. For your information, lien/hold mean that the specified amount of money in your account is bloced and cannot be withdrawn unless the concerned Police Authorities / court gives the NOC to release the amount. For lien details visit your Bank of India Branch.",
+      "",
+      "Account Holder Name : ABHISHEK KUMAR",
+      "Account Number : 440518210003588",
+      "Account Type : SAVING",
+      "Branch Name : NAUBATPUR",
+      "Lien Amount :4999.59  Transaction ID : 653721605257",
+      "31 Aug 2026, 03:40 PM",
+      "",
+      "For any further assistance, please contact your Bank of India Branch or call our customer care number 1800 103 1906.",
+    ]
+  },
+  {
+    id: 2,
+    sender: "Bank Of India",
+    email: "boi.crmadm​in@bankofindia.co.in",
+    initial: "B",
+    color: "#e8675c",
+    subject: "Notice:Lien/hold placed on your account",
+    preview: "Date : 09/06/2026 5:28:41 PM Ref No. : BI26274401114578",
+    date: "06 Sep",
+    fullDate: "06 Sep 2026, 5:28 pm",
+    body: [
+      "Date : 08/31/2026 11:38 PM",
+      "Ref No. : BI26274401114578",
+      "Name : ABHISHEK KUMAR",
+      "Address : S O ABHIMANYU KUMAR NAUBATPUR, PATNA, BIHAR, 801109",
+      "",
+      "Dear Customer,",
+      "",
+      "We would like to inform you that a lien/hold has been placed on your account as per the notification received on the National Cyber Reporting Portal. For your information, lien/hold mean that the specified amount of money in your account is bloced and cannot be withdrawn unless the concerned Police Authorities / court gives the NOC to release the amount. For lien details visit your Bank of India Branch.",
+      "",
+      "Account Holder Name : ABHISHEK KUMAR",
+      "Account Number : 440518210003588",
+      "Account Type : SAVING",
+      "Branch Name : NAUBATPUR",
+      "Lien Amount : 10000.00  Transaction ID : 613198062260",  
+      "31 Aug 2026, 01:16 PM",
+      "",
+      "For any further assistance, please contact your Bank of India Branch or call our customer care number 1800 103 1906.",
+    ]
+  },
+   {
+    id: 3,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
     initial: "B",
@@ -51,7 +111,7 @@ const emails = [
     ]
    },
   {
-    id: 2,
+    id: 4,
     sender: "Google One",
     email: "googleone-noreply@google.com",
     initial: "G",
@@ -66,7 +126,7 @@ const emails = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     sender: "Google",
     email: "accounts-noreply@google.com",
     initial: "G",
@@ -81,7 +141,7 @@ const emails = [
     ]
   },
   {
-    id: 4,
+    id: 6,
     sender: "Starform Support",
     email: "support@starform.example",
     initial: "S",
@@ -96,7 +156,7 @@ const emails = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
     initial: "B",
@@ -126,7 +186,7 @@ const emails = [
       ]
   },
   {
-    id: 6,
+    id: 8,
     sender: "Starform Support co",
     email: "support@starform.co",
     initial: "S",
@@ -142,7 +202,7 @@ const emails = [
     ]
   },
   {
-    id: 7,
+    id: 9,
     sender: "Ho.boiomni...",
     email: "Ho.boiomni@alerts.bankofindia.bank.in",
     initial: "•",
@@ -161,7 +221,7 @@ const emails = [
     ]
   },
   {
-    id: 8,
+    id: 10,
     sender: "OLX",
     email: "noreply@olx.in",
     initial: "O",
@@ -175,7 +235,7 @@ const emails = [
     ]
   },
   {
-    id: 9,
+    id: 11,
     sender: "Niit University",
     email: "noreply@niituniversity.edu",
     initial: "N",
@@ -189,7 +249,7 @@ const emails = [
     ]
   },
   {
-    id: 10,
+    id: 12,
     sender: "Starform Support",
     email: "metalstorm.com",
     initial: "S",
@@ -198,7 +258,7 @@ const emails = [
     preview: "Dear Pilot, Your email address has been updated successfully.",
   },
   {
-    id: 11,
+    id: 13,
     sender: "Google",
     email: "no-reply@account.google.com",
     initial: "G",
