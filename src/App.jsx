@@ -66,6 +66,8 @@ const emails = [
    id: -11,
     sender: "Bank Of Baroda",
     email: "gm.ops.ho@bankofbaroda.bank.in",
+    mailedBy: "bankofbaroda.bank.in",
+    signedBy: "bankofbaroda.bank.in",
     initial: "B",
     color: "#e8945c",
     subject: "Lien/hold placed on your BOB account",
@@ -226,6 +228,8 @@ const emails = [
     id: 1,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
+    mailedBy: "bankofindia.bank.in",
+    signedBy: "bankofindia.co.in",
     initial: "B",
     color: "#e8675c",
     subject: "Notice:Lien/hold placed on your account",
@@ -256,6 +260,8 @@ const emails = [
     id: 2,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
+    mailedBy: "bankofindia.bank.in",
+    signedBy: "bankofindia.co.in",
     initial: "B",
     color: "#e8675c",
     subject: "Notice:Lien/hold placed on your account",
@@ -286,6 +292,8 @@ const emails = [
     id: 3,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
+    mailedBy: "bankofindia.bank.in",
+    signedBy: "bankofindia.co.in",
     initial: "B",
     color: "#e8675c",
     subject: "Notice:Lien/hold placed on your account",
@@ -486,6 +494,8 @@ function App() {
   const [selectedMail, setSelectedMail] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [starred, setStarred] = useState(false);
+  const [showSecurity, setShowSecurity] = useState(false);
+const [showHelp, setShowHelp] = useState(false);
 
   const openMail = (mail) => {
     setSelectedMail(mail);
@@ -499,6 +509,145 @@ function App() {
   };
 
   if (selectedMail) {
+    if (showHelp) {
+  return (
+    <div className="app">
+      <div className="help-page">
+        <header className="help-toolbar">
+          <button
+            className="help-back"
+            onClick={() => setShowHelp(false)}
+            aria-label="Back"
+          >
+            <ArrowLeft size={24} strokeWidth={2} />
+          </button>
+
+          <h2>Help</h2>
+
+          <div className="help-actions">
+            <button>×</button>
+            <button>
+              <MoreVertical size={24} strokeWidth={2} />
+            </button>
+          </div>
+        </header>
+
+        <main className="help-content">
+          <main className="help-content">
+  <h1>Check your email security</h1>
+
+  <p>
+    Email services can encrypt messages while they are being transferred
+    to help keep your information protected. You can check the security
+    level of an email.
+  </p>
+
+  <p>
+    <strong>Want to get more out of Google apps at work or school?</strong>{" "}
+    Learn about Google Workspace options for organizations and schools.
+  </p>
+
+  <h2>Learn what the encryption icons mean</h2>
+
+  <p>
+    When you send or receive an email, a lock icon can indicate the level
+    of encryption used to protect the message.
+  </p>
+
+  <ul>
+    <li>
+      <strong>🔒 Standard encryption:</strong>{" "}
+      Transport Layer Security (TLS) helps protect your email while it
+      travels between email providers. It is commonly used for email
+      delivery.
+    </li>
+
+    <li>
+      <strong>⚠️ No encryption:</strong>{" "}
+      The message was not protected by standard encryption during
+      delivery. Avoid including sensitive information in messages that
+      are not encrypted.
+    </li>
+  </ul>
+
+  <p>
+    Work and school accounts may also support additional encryption
+    features:
+  </p>
+
+  <ul>
+    <li>
+      <strong>🔐 Enhanced encryption:</strong>{" "}
+      Some organizations can use S/MIME to provide an additional layer
+      of protection for email messages.
+    </li>
+
+    <li>
+      <strong>🛡️ Additional encryption:</strong>{" "}
+      With client-side encryption, an organization controls the keys
+      used to encrypt and decrypt its messages.
+    </li>
+  </ul>
+
+  <div className="help-tabs">
+    <button className="help-tab active">Computer</button>
+    <button className="help-tab">Android</button>
+    <button className="help-tab">iPhone and iPad</button>
+  </div>
+
+  <h2>Check encryption for incoming messages</h2>
+
+  <p>
+    1. Open the email you want to check.
+  </p>
+
+  <p>
+    2. Open the message details using the drop-down control near the
+    sender or recipient information.
+  </p>
+
+  <p>
+    3. Find the security section to see which encryption method was used.
+  </p>
+
+  <ul>
+    <li>Standard encryption (TLS)</li>
+    <li>Enhanced encryption (S/MIME)</li>
+    <li>No encryption supported</li>
+  </ul>
+
+  <h2>Learn why some emails aren't encrypted</h2>
+
+  <ul>
+    <li>
+      If an email provider does not support TLS, the message may not be
+      encrypted during delivery.
+    </li>
+
+    <li>
+      You may sometimes see a warning even when encryption is normally
+      available, depending on the email provider or domain being used.
+    </li>
+  </ul>
+
+  <h2>Related resources</h2>
+
+  <ul className="related-resources">
+    <li>Email security tips</li>
+    <li>Confidential email features</li>
+    <li>How to recognize and report phishing emails</li>
+  </ul>
+
+  <p className="feedback-text">
+    Give feedback about this article
+           </p>
+          </main>
+        </main>
+      </div>
+    </div>
+  );
+}
+
     return (
       <div className="app">
         <div className="mail-page">
@@ -624,12 +773,63 @@ function App() {
                     <span>Standard encryption (TLS).</span>
                   </div>
 
-                  <button className="security-link">
-                    See security details
-                  </button>
+                  <button
+  className="security-link"
+  onClick={() => setShowSecurity(true)}
+  >
+  See security details
+</button>
 
                 </div>
               )}
+              {showSecurity && (
+  <div
+  className="security-modal"
+  onClick={() => setShowSecurity(false)}
+>
+    <div
+  className="security-modal-box"
+  onClick={(e) => e.stopPropagation()}
+>
+
+      <div className="security-modal-header">
+        <strong>Security details</strong>
+
+      
+      </div>
+
+      <div className="security-info">
+
+  <div className="security-row">
+  <span>Mailed by:</span>
+  <strong>{selectedMail.mailedBy}</strong>
+</div>
+
+<div className="security-row">
+  <span>Signed by:</span>
+  <strong>{selectedMail.signedBy}</strong>
+</div>
+
+  <div className="security-row security-status">
+    <span>Security:</span>
+    <Lock size={18} strokeWidth={2} />
+    <strong>Standard encryption (TLS).</strong>
+  </div>
+
+  <button
+    className="learn-more"
+    onClick={() => {
+  setShowSecurity(false);
+  setShowHelp(true);
+}}
+  >
+    Learn more
+  </button>
+
+</div>
+    </div>
+  </div>
+)}
 
               <div className="email-body">
                 {selectedMail.body.map((paragraph, index) => (
