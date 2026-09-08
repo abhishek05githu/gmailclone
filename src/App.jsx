@@ -20,6 +20,209 @@ import "./App.css";
 
 const emails = [
   {
+   id: -14,
+   sender: "Niit University",
+    email: "noreply@niituniversity.edu",
+    initial: "N",
+    color: "#4CAF50",
+    subject: "Welcome to Niit University",
+    preview: "Congratulations on joining Niit University! We are excited to have you on board.",
+    date: "09 Jul",
+    fullDate: "09 Jul 2026, 12:56 am",
+    body: [
+      "Congratulations on joining Niit University! We are excited to have you on board.",
+    ]
+
+  },
+  {
+   id: -13,
+   sender: "Metalstrom team",
+    email: "noreply@metalstrom.com",
+    initial: "M",
+    color: "rgba(85, 204, 255, 0.67)",
+    subject: "Monthly progress reminder",
+    preview: "check your monthly progress",
+    date: "08 Sep",
+    fulldate: "08 Sep 2026, 05:00",
+
+  },
+  {
+   id: -12,
+   sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "08 Sep",
+    fullDate: "08 Sep 2026, 03:11 pm",
+    body: [
+      "You have signed in to your Google Account.",
+      "If this was you, you can safely ignore this email.",
+      "If you don't recognize this activity, please secure your account immediately."
+    ]
+  },
+  {
+   id: -11,
+    sender: "Bank Of Baroda",
+    email: "gm.ops.ho@bankofbaroda.bank.in",
+    initial: "B",
+    color: "#e8945c",
+    subject: "Lien/hold placed on your BOB account",
+    preview: "Date : 09/07/2026 04:12 PM Ref No. : BOB6386649116388",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 04:12 pm",
+    body: [
+      "Dear Customer,",
+      "",
+      "Refer to you trail mail and inform you that in your account as 31.08.2026 you have received Rs. 10,000/- from upi vide RRN number 624310910428",
+      "We would like to inform you that a lien/hold has been placed on your account as per the notification received on the National Cyber Reporting Portal. For your information, lien/hold mean that the specified amount of money in your account is bloced and cannot be withdrawn unless the concerned Police Authorities / court gives the NOC to release the amount.",
+      "Account Holder Name : SUDHANSHU RAJ",
+      "Account Number : 43090100010953",
+      "Lien Amount :10000.00", 
+      "Transaction ID : 624310910428",
+      "31 Aug 2026",
+      "",
+      "For any further assistance, please contact your Bank Of Baroda Naubatpur Branch or call 1800 5700.",
+    ]
+  },
+  {
+    id: -10,
+    sender: "Metalstrom team",
+    email: "noreply@metalstrom.com",
+    initial: "M",
+    color: "rgba(85, 204, 255, 0.67)",
+    subject: "Monthly progress reminder",
+    preview: "check your monthly progress",
+    date: "07 Sep",
+    fulldate: "07 Sep 2026, 01:00",
+  },
+  {
+    id: -9,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 12:01 pm",
+    body: [
+      "You have signed in to your Google Account.",
+      "If this was you, you can safely ignore this email.",
+      "If you don't recognize this activity, please secure your account immediately."
+    ]
+  },
+  {
+    id: -8,
+    sender: "Activison",
+    email: "noreply@activison.com",
+    initial: "A",
+    color: "#000000",
+    subject: "Welcome to Call of Duty!",
+    preview: "Call of Duty account created successfully.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 11:30 am",
+    body: [
+      "Call of Duty account created successfully.",
+      "Welcome to the world of Call of Duty! Start your journey and enjoy the game.",
+      "We have sent you some rewards in your Call of Duty mobile account mailbox. Please check your in-game mail to claim your rewards."
+    ]
+  },
+  {
+    id: -7,
+    sender: "Spotify",
+    email: "noreply@spotify.com",
+    initial: "S",
+    color: "#1db954",
+    subject: "Welcome to Spotify!",
+    preview: "Thanks for signing up for Spotify!",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 11:27 am",
+    body: [
+      "Thanks for signing up for Spotify!",
+      "We're excited to have you on board. Start exploring and enjoy your music journey with us."
+    ]
+  },
+  {
+    id: -6,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 09:47 am",
+  },
+  {
+    id: -5,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 09:45 am",
+  },
+  {
+    id: -4,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 09:45 am",
+  },
+  {
+    id: -3,
+    sender: "Amazon",
+    email: "noreply@amazon.com",
+    initial: "A",
+    color: "#fafafa",
+    subject: "Your Amazon account has been successfully created",
+    preview: "Welcome to Amazon! Your account has been successfully created.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 09:30 am",
+  },
+  {
+    id: -2,
+    sender: "AJIO",
+    email: "noreply@ajio.com",
+    initial: "A",
+    color: "#faf9f7",
+    subject: "Your order has been shipped",
+    preview: "Your order has been shipped and is on its way to you.",
+    date: "07 Sep",
+    fullDate: "07 Sep 2026, 08:00 pm",
+
+  },
+  {
+    id: -1,
+    sender: "ship-confirm",
+    email: "noreply@ship-confirm.com",
+    initial: "f",
+    color: "#f4b027",
+    subject: "Your order has been shipped",
+    preview: "Your order has been shipped and is on its way to you.",
+    date: "06 Sep",
+    fullDate: "06 Sep 2026, 02:11 pm",
+  },
+  {
+    id: 0,
+    sender: "Google Play",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#42ebf4",
+    subject: "Your Google Play order receipt",
+    preview: "Your Google Play order receipt for your purchase of the app 'MyApp' is attached.",
+    date: "06 Sep",
+    fullDate: "06 Sep 2026, 10:15 am",
+  },
+  {
     id: 1,
     sender: "Bank Of India",
     email: "boi.crmadm​in@bankofindia.co.in",
@@ -408,7 +611,7 @@ function App() {
 
                   <div className="detail-line">
                     <span>To</span>
-                    <strong>abhishekstark304@gmail.com</strong>
+                    <strong>rajshudhanshu70@gmail.com</strong>
                   </div>
 
                   <div className="detail-line">
@@ -483,7 +686,7 @@ function App() {
           </div>
 
           <div className="profile">
-            A
+            R
           </div>
 
         </header>
