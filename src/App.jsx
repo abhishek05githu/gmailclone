@@ -760,7 +760,7 @@ const [showHelp, setShowHelp] = useState(false);
 
                   <div className="detail-line">
                     <span>To</span>
-                    <strong>rajshudhanshu70@gmail.com</strong>
+                    <strong>abhishekstark304@gmail.com</strong>
                   </div>
 
                   <div className="detail-line">
@@ -886,7 +886,7 @@ const [showHelp, setShowHelp] = useState(false);
           </div>
 
           <div className="profile">
-            R
+            A
           </div>
 
         </header>
