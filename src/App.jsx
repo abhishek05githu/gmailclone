@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   ArrowLeft,
@@ -18,7 +19,8 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const emails = [
+const defaultEmails = [
+
   {
    id: 1,
     sender: "Bank Of India",
@@ -601,6 +603,89 @@ function Icon({ children, className = "" }) {
 }
 
 function App() {
+  const [emails, setEmails] = useState(() => {
+  const savedEmails = localStorage.getItem("gmailclone_emails");
+
+  if (savedEmails) {
+    return JSON.parse(savedEmails);
+  }
+
+  return defaultEmails;
+});
+  const [showCompose, setShowCompose] = useState(false);
+  const openCompose = () => {
+  setShowCompose(true);
+};
+
+const deleteEmail = (emailId) => {
+  const updatedEmails = emails.filter(
+    (mail) => mail.id !== emailId
+  );
+
+  setEmails(updatedEmails);
+
+  localStorage.setItem(
+    "gmailclone_emails",
+    JSON.stringify(updatedEmails)
+  );
+
+  setSelectedMail(null);
+};
+
+const addReceivedEmail = () => {
+
+
+  const newEmail = {
+  id: Date.now(),
+
+  sender: emailSender,
+  email: emailAddress,
+
+  mailedBy: emailMailedBy,
+  signedBy: emailSignedBy,
+
+  initial: emailInitial || emailSender?.[0]?.toUpperCase() || "?",
+  color: emailColor,
+
+  subject: emailSubject,
+  preview: emailPreview,
+
+  date: emailDate,
+  fullDate: emailFullDate,
+
+  body: emailBody.split("\n"),
+};
+
+  const updatedEmails = [newEmail, ...emails];
+
+setEmails(updatedEmails);
+
+localStorage.setItem(
+  "gmailclone_emails",
+  JSON.stringify(updatedEmails)
+);
+
+  setShowCompose(false);
+
+  setEmailPreview("");
+setEmailFullDate("");
+setEmailMailedBy("");
+setEmailSignedBy("");
+setEmailInitial("");
+setEmailColor("#4285F4");
+};
+  
+  const [emailSender, setEmailSender] = useState("");
+const [emailAddress, setEmailAddress] = useState("");
+const [emailSubject, setEmailSubject] = useState("");
+const [emailDate, setEmailDate] = useState("");
+const [emailBody, setEmailBody] = useState("");
+const [emailPreview, setEmailPreview] = useState("");
+const [emailFullDate, setEmailFullDate] = useState("");
+const [emailMailedBy, setEmailMailedBy] = useState("");
+const [emailSignedBy, setEmailSignedBy] = useState("");
+const [emailInitial, setEmailInitial] = useState("");
+const [emailColor, setEmailColor] = useState("#4285F4");
   const [selectedMail, setSelectedMail] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [starred, setStarred] = useState(false);
@@ -618,10 +703,13 @@ const [showHelp, setShowHelp] = useState(false);
     setShowDetails(false);
   };
 
+
   if (selectedMail) {
     if (showHelp) {
   return (
     <div className="app">
+
+    
       <div className="help-page">
         <header className="help-toolbar">
           <button
@@ -782,9 +870,13 @@ const [showHelp, setShowHelp] = useState(false);
               <Archive size={24} strokeWidth={2} />
             </button>
 
-            <button className="toolbar-btn" aria-label="Delete">
-              <Trash2 size={24} strokeWidth={2} />
-            </button>
+            <button
+  className="toolbar-btn"
+  aria-label="Delete"
+  onClick={() => deleteEmail(selectedMail.id)}
+>
+  <Trash2 size={24} strokeWidth={2} />
+</button>
 
             <button className="toolbar-btn" aria-label="Mark unread">
               <Mail size={24} strokeWidth={2} />
@@ -870,7 +962,7 @@ const [showHelp, setShowHelp] = useState(false);
 
                   <div className="detail-line">
                     <span>To</span>
-                    <strong>abhishekstark304@gmail.com</strong>
+                    <strong>rajshudhanshu70@gmail.com</strong>
                   </div>
 
                   <div className="detail-line">
@@ -980,6 +1072,97 @@ const [showHelp, setShowHelp] = useState(false);
     <div className="app">
       <div className="inbox-page">
 
+        {showCompose && (
+  <div className="compose-modal">
+    <div className="compose-box">
+      <div className="compose-header">
+        <span>Add Received Email</span>
+        <button onClick={() => setShowCompose(false)}>✕</button>
+      </div>
+
+      <input
+        type="text"
+        placeholder="Sender Name"
+        value={emailSender}
+        onChange={(e) => setEmailSender(e.target.value)}
+      />
+
+      <input
+        type="email"
+        placeholder="Sender Email"
+        value={emailAddress}
+        onChange={(e) => setEmailAddress(e.target.value)}
+      />
+
+      <input
+        type="text"
+        placeholder="Subject"
+        value={emailSubject}
+        onChange={(e) => setEmailSubject(e.target.value)}
+      />
+
+      <input
+        type="text"
+        placeholder="Date (e.g. Sep 19)"
+        value={emailDate}
+        onChange={(e) => setEmailDate(e.target.value)}
+      />
+
+      <input
+  type="text"
+  placeholder="Preview"
+  value={emailPreview}
+  onChange={(e) => setEmailPreview(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Full Date"
+  value={emailFullDate}
+  onChange={(e) => setEmailFullDate(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Mailed By"
+  value={emailMailedBy}
+  onChange={(e) => setEmailMailedBy(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Signed By"
+  value={emailSignedBy}
+  onChange={(e) => setEmailSignedBy(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Initial"
+  value={emailInitial}
+  onChange={(e) => setEmailInitial(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Color (e.g. #4285F4)"
+  value={emailColor}
+  onChange={(e) => setEmailColor(e.target.value)}
+/>
+
+      <textarea
+        placeholder="Email body"
+        value={emailBody}
+        onChange={(e) => setEmailBody(e.target.value)}
+      />
+
+      <button className="send-btn" onClick={addReceivedEmail}>
+        Add to Inbox
+      </button>
+    </div>
+  </div>
+)}
+
         <header className="inbox-header">
 
           <button className="menu-btn">
@@ -996,7 +1179,7 @@ const [showHelp, setShowHelp] = useState(false);
           </div>
 
           <div className="profile">
-            A
+            S
           </div>
 
         </header>
@@ -1055,10 +1238,26 @@ const [showHelp, setShowHelp] = useState(false);
 
         </main>
 
-        <button className="compose-btn">
-          <span>✎</span>
-          Compose
-        </button>
+ <button
+  className="compose-btn"
+  onClick={openCompose}
+  onContextMenu={(e) => {
+    e.preventDefault();
+    setShowCompose(true);
+  }}
+  onTouchStart={() => {
+  window.composeTimer = setTimeout(() => {
+    setShowCompose(true);
+  }, 700);
+}}
+
+onTouchEnd={() => {
+  clearTimeout(window.composeTimer);
+}}
+>
+  <span>✎</span>
+  Compose
+</button>
 
         <BottomNav />
 
