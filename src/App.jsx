@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   ArrowLeft,
   Archive,
@@ -20,7 +20,209 @@ import {
 import "./App.css";
 
 const defaultEmails = [
-
+  {
+   id: -9,
+    sender: "Amazone",
+    email: "noreply@amazone.com",
+    initial: "A",
+    color: "rgb(245, 176, 126)",
+    subject: "Order delivered",
+    preview: "Your order has been successfully delivered",
+    date: "19 Sep",
+    fullDate: "19 Sep 2026, 04:15 pm",
+  },
+  {
+   id: -9,
+    sender: "Amazone",
+    email: "noreply@amazone.com",
+    initial: "A",
+    color: "rgb(213, 245, 126)",
+    subject: "Order is out for delivery",
+    preview: "Your order is out for delivery",
+    date: "19 Sep",
+    fullDate: "19 Sep 2026, 03:39 pm",
+  },
+  {
+   id: -11,
+    sender: "Bank Of Baroda",
+    email: "gm.ops.ho@bankofbaroda.bank.in",
+    mailedBy: "bankofbaroda.bank.in",
+    signedBy: "bankofbaroda.bank.in",
+    initial: "B",
+    color: "#e8945c",
+    subject: "Lien/hold placed on your BOB account",
+    preview: "Date : 09/19/2026 03:21 PM Ref No. : BOB7834449766311",
+    date: "19 Sep",
+    fullDate: "19 Sep 2026, 03:21 pm",
+    body: [
+      "Dear Customer",
+      "",
+      "Greetings from Bank Of Baroda",
+      "",
+      "We wish to inform you that a lien/hold has been placed on an amount in your account as per the notification/complaint received on the National Cyber Crime Reporting Portal.",
+      "Account Holder Name : SUDHANSHU RAJ",
+      "Account Number : 43090100010953",
+      "Lien Amount :10000.00", 
+      "Transaction ID : 624310910428",
+      "31 Aug 2026",
+      "",
+      "For your information, lien/hold means that the specified amount in your account is temporarily blocked and cannot be withdrawn unless the concerned Police Authorities/court gives the direction/NOC to release the amount",
+      "Hope you will understand that the Bank has acted in compliance to the guidelines issued from Indian Cyber Crime Coordination Centre. Request you to approach the concerned authorities as mentioned above for the release of amount in your account",
+      "",
+      "In case of any further information/details/clarification required, would request you to contact your home branch / nearest branch.",
+      "",
+      "Warm Regards,",
+      "Bank Of Baroda",
+  
+    ]
+  },
+  {
+  id: -9,
+    sender: "Google",
+    email: "noreply@google.in",
+    initial: "G",
+    color: "rgb(126, 245, 203)",
+    subject: "google play",
+    preview: "Your google play points are active",
+    date: "19 Sep",
+    fullDate: "19 Sep 2026, 02:28 pm",
+  },
+  {
+   id: -9,
+    sender: "Youtube",
+    email: "noreply@youtube.in",
+    initial: "Y",
+    color: "rgb(241, 9, 9)",
+    subject: "Monthly progress",
+    preview: "Sep progress results",
+    date: "19 Sep",
+    fullDate: "19 Sep 2026, 11:13 am",
+  },
+  {
+   id: -9,
+    sender: "NoBrokage",
+    email: "nobrokage@service.in",
+    initial: "A",
+    color: "rgb(12, 63, 108)",
+    subject: "Latest properties",
+    preview: "Your choise on these properties",
+    date: "18 Sep",
+    fullDate: "18 Sep 2026, 08:26 pm",
+  },
+  {
+   id: -9,
+    sender: "zudio",
+    email: "noreply@zudio.in",
+    initial: "Z",
+    color: "rgb(30, 29, 29)",
+    subject: "New sale is live",
+    preview: "Get 50% discount in zudio",
+    date: "18 Sep",
+    fullDate: "18 Sep 2026, 06:18 pm",
+  },
+  {
+   id: -9,
+    sender: "Amazone",
+    email: "noreply@amazone.com",
+    initial: "A",
+    color: "rgb(245, 176, 126)",
+    subject: "Order placed",
+    preview: "Your order has been placed",
+    date: "18 Sep",
+    fullDate: "18 Sep 2026, 04:01 am",
+  },
+  {
+   id: -9,
+    sender: "Amazone",
+    email: "noreply@amazone.com",
+    initial: "A",
+    color: "rgb(245, 176, 126)",
+    subject: "Order placed",
+    preview: "Your order has been placed",
+    date: "18 Sep",
+    fullDate: "18 Sep 2026, 04:01 am",
+  },
+  {
+   id: -8,
+    sender: "Amazon",
+    email: "noreply@amazon.com",
+    initial: "A",
+    color: "#fafafa",
+    subject: "Order comfirmed",
+    preview: "Thanks for trusting us.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 12:30 pm"
+  },
+  {
+   id: -7,
+    sender: "Spotify",
+    email: "noreply@spotify.com",
+    initial: "S",
+    color: "#1db954",
+    subject: "Welcome to Spotify!",
+    preview: "Thanks for signing up for Spotify!",
+    date: "18 Sep",
+    fullDate: "18 Sep 2026, 11:27 am",
+    body: [
+      "Thanks for signing up for Spotify!",
+      "We're excited to have you on board. Start exploring and enjoy your music journey with us."
+    ]
+  },
+  {
+    id: -6,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 09:47 am",
+  },
+  {
+    id: -5,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 4:25 pm",
+  },
+  {
+    id: -4,
+    sender: "Google",
+    email: "noreply@google.com",
+    initial: "G",
+    color: "#f4aa42",
+    subject: "new sign-in to your Google Account",
+    preview: "You have signed in to your Google Account.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 02:45 am",
+  },
+  {
+    id: -3,
+    sender: "Amazon",
+    email: "noreply@amazon.com",
+    initial: "A",
+    color: "#fafafa",
+    subject: "Your Amazon account has been successfully created",
+    preview: "Welcome to Amazon! Your account has been successfully created.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 12:30 pm",
+  },
+  {
+    id: -2,
+    sender: "AJIO",
+    email: "noreply@ajio.com",
+    initial: "A",
+    color: "#faf9f7",
+    subject: "Your order has been shipped",
+    preview: "Your order has been shipped and is on its way to you.",
+    date: "17 Sep",
+    fullDate: "17 Sep 2026, 12:00 pm",
+  },
   {
    id: 1,
     sender: "Bank Of India",
@@ -613,6 +815,23 @@ function App() {
   return defaultEmails;
 });
   const [showCompose, setShowCompose] = useState(false);
+  const [longPressedMail, setLongPressedMail] = useState(null);
+  const [editingMail, setEditingMail] = useState(null);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const profileInputRef = useRef(null);
+  const [profilePhoto, setProfilePhoto] = useState(
+  localStorage.getItem("gmailclone_profilePhoto") || ""
+);
+
+const [profileInitial, setProfileInitial] = useState(
+  localStorage.getItem("gmailclone_profileInitial") || "A"
+);
+
+const [profileColor, setProfileColor] = useState(
+  localStorage.getItem("gmailclone_profileColor") || "#8ab4f8"
+);
+  const longPressTimer = useRef(null);
+  const didLongPress = useRef(false);
   const openCompose = () => {
   setShowCompose(true);
 };
@@ -633,59 +852,77 @@ const deleteEmail = (emailId) => {
 };
 
 const addReceivedEmail = () => {
+  const emailData = {
+    sender: emailSender,
+    email: emailAddress,
+    receiver: emailReceiver,
+    mailedBy: emailMailedBy,
+    signedBy: emailSignedBy,
+    initial: emailInitial || emailSender?.[0]?.toUpperCase() || "?",
+    color: emailColor,
+    avatarImage: emailAvatarImage,
+    subject: emailSubject,
+    preview: emailPreview,
+    date: emailDate,
+    fullDate: emailFullDate,
+    body: emailBody.split("\n"),
+    inlineImage: emailInlineImage,
+  };
 
+  let updatedEmails;
 
-  const newEmail = {
-  id: Date.now(),
+  if (editingMail) {
+    updatedEmails = emails.map((mail) =>
+      mail.id === editingMail.id
+        ? { ...mail, ...emailData }
+        : mail
+    );
+  } else {
+    const newEmail = {
+      id: Date.now(),
+      ...emailData,
+    };
 
-  sender: emailSender,
-  email: emailAddress,
+    updatedEmails = [newEmail, ...emails];
+  }
 
-  mailedBy: emailMailedBy,
-  signedBy: emailSignedBy,
+  setEmails(updatedEmails);
 
-  initial: emailInitial || emailSender?.[0]?.toUpperCase() || "?",
-  color: emailColor,
+  localStorage.setItem(
+    "gmailclone_emails",
+    JSON.stringify(updatedEmails)
+  );
 
-  subject: emailSubject,
-  preview: emailPreview,
-
-  date: emailDate,
-  fullDate: emailFullDate,
-
-  body: emailBody.split("\n"),
-};
-
-  const updatedEmails = [newEmail, ...emails];
-
-setEmails(updatedEmails);
-
-localStorage.setItem(
-  "gmailclone_emails",
-  JSON.stringify(updatedEmails)
-);
-
+  setEditingMail(null);
   setShowCompose(false);
 
+  setEmailSender("");
+  setEmailAddress("");
+  setEmailSubject("");
+  setEmailDate("");
+  setEmailBody("");
   setEmailPreview("");
-setEmailFullDate("");
-setEmailMailedBy("");
-setEmailSignedBy("");
-setEmailInitial("");
-setEmailColor("#4285F4");
+  setEmailFullDate("");
+  setEmailMailedBy("");
+  setEmailSignedBy("");
+  setEmailInitial("");
+  setEmailColor("#4285F4");
 };
   
   const [emailSender, setEmailSender] = useState("");
 const [emailAddress, setEmailAddress] = useState("");
+const [emailReceiver, setEmailReceiver] = useState("");
 const [emailSubject, setEmailSubject] = useState("");
 const [emailDate, setEmailDate] = useState("");
 const [emailBody, setEmailBody] = useState("");
+const [emailInlineImage, setEmailInlineImage] = useState("");
 const [emailPreview, setEmailPreview] = useState("");
 const [emailFullDate, setEmailFullDate] = useState("");
 const [emailMailedBy, setEmailMailedBy] = useState("");
 const [emailSignedBy, setEmailSignedBy] = useState("");
 const [emailInitial, setEmailInitial] = useState("");
 const [emailColor, setEmailColor] = useState("#4285F4");
+const [emailAvatarImage, setEmailAvatarImage] = useState("");
   const [selectedMail, setSelectedMail] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [starred, setStarred] = useState(false);
@@ -904,12 +1141,24 @@ const [showHelp, setShowHelp] = useState(false);
 
               <div className="sender-row">
 
-                <div
-                  className="avatar large"
-                  style={{ backgroundColor: selectedMail.color }}
+               <div
+                 className="avatar"
+                 style={{
+                   backgroundColor: selectedMail.avatarImage
+                     ? "transparent"
+                     : selectedMail.color,
+                 }}
                 >
-                  {selectedMail.initial}
-                </div>
+                 {selectedMail.avatarImage ? (
+                   <img
+                    src={selectedMail.avatarImage}
+                    alt=""
+                    className="email-avatar-image"
+                  />
+                ) : (
+                  selectedMail.initial
+                )}
+              </div> 
 
                 <div className="sender-info">
                   <div className="sender-name">
@@ -962,7 +1211,7 @@ const [showHelp, setShowHelp] = useState(false);
 
                   <div className="detail-line">
                     <span>To</span>
-                    <strong>rajshudhanshu70@gmail.com</strong>
+                    <strong>{selectedMail.receiver || "abhishekstark304@gmail.com"}</strong>
                   </div>
 
                   <div className="detail-line">
@@ -1034,11 +1283,23 @@ const [showHelp, setShowHelp] = useState(false);
 )}
 
               <div className="email-body">
-                {selectedMail.body.map((paragraph, index) => (
+                {(Array.isArray(selectedMail.body)
+                 ? selectedMail.body
+                 : [selectedMail.body || ""]
+                ).map((paragraph, index) => (
                   <p key={index}>
                     {paragraph || <>&nbsp;</>}
                   </p>
                 ))}
+
+                {selectedMail.inlineImage && (
+                  
+                 <img
+                 src={selectedMail.inlineImage}
+                 alt="Email branding"
+                 className="email-inline-image"
+                />
+              )}
               </div>
 
             </div>
@@ -1072,6 +1333,178 @@ const [showHelp, setShowHelp] = useState(false);
     <div className="app">
       <div className="inbox-page">
 
+        {showProfileMenu && (
+  <div
+    className="profile-overlay"
+    onClick={() => setShowProfileMenu(false)}
+  >
+    <div
+      className="profile-menu"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <h3>Profile</h3>
+
+      <input
+  ref={profileInputRef}
+  type="file"
+  accept="image/*"
+  style={{ display: "none" }}
+  onChange={(e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = reader.result;
+      setProfilePhoto(result);
+      localStorage.setItem(
+        "gmailclone_profilePhoto",
+        result
+      );
+    };
+
+    reader.readAsDataURL(file);
+  }}
+/>
+
+      <div
+        className="profile-preview"
+        style={{
+          backgroundColor: profilePhoto ? "transparent" : profileColor,
+        }}
+      >
+        {profilePhoto ? (
+          <img src={profilePhoto} alt="Profile" />
+        ) : (
+          profileInitial
+        )}
+      </div>
+
+      <input
+        type="text"
+        maxLength="1"
+        value={profileInitial}
+        onChange={(e) => {
+          const value = e.target.value
+            .slice(0, 1)
+            .toUpperCase();
+
+          setProfileInitial(value);
+          localStorage.setItem(
+            "gmailclone_profileInitial",
+            value
+          );
+        }}
+        placeholder="Initial"
+      />
+
+      <div className="profile-colors">
+        {[
+          "#8ab4f8",
+          "#f28b82",
+          "#fbbc04",
+          "#81c995",
+          "#c58af9",
+          "#78d9ec",
+        ].map((color) => (
+          <button
+            key={color}
+            className="color-dot"
+            style={{ backgroundColor: color }}
+            onClick={() => {
+              setProfileColor(color);
+              localStorage.setItem(
+                "gmailclone_profileColor",
+                color
+              );
+            }}
+          />
+        ))}
+      </div>
+
+      <button
+  type="button"
+  className="profile-action"
+  onClick={() => {
+    profileInputRef.current?.click();
+  }}
+>
+  📷 Choose profile photo
+</button>
+
+      {profilePhoto && (
+        <button
+          className="profile-action"
+          onClick={() => {
+            setProfilePhoto("");
+            localStorage.removeItem("gmailclone_profilePhoto");
+          }}
+        >
+          🗑️ Remove photo
+        </button>
+      )}
+
+      <button
+        className="profile-close"
+        onClick={() => setShowProfileMenu(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
+        {longPressedMail && (
+  <div
+    className="long-press-overlay"
+    onClick={() => setLongPressedMail(null)}
+  >
+    <div
+      className="long-press-menu"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+  onClick={() => {
+    setEditingMail(longPressedMail);
+    setEmailSender(longPressedMail.sender || "");
+    setEmailAddress(longPressedMail.email || "");
+    setEmailReceiver(longPressedMail.receiver || "");
+    setEmailSubject(longPressedMail.subject || "");
+    setEmailDate(longPressedMail.date || "");
+    setEmailPreview(longPressedMail.preview || "");
+    setEmailFullDate(longPressedMail.fullDate || "");
+    setEmailMailedBy(longPressedMail.mailedBy || "");
+    setEmailSignedBy(longPressedMail.signedBy || "");
+    setEmailInitial(longPressedMail.initial || "");
+    setEmailColor(longPressedMail.color || "#4285F4");
+    setEmailAvatarImage(longPressedMail.avatarImage || "");
+    setEmailBody(longPressedMail.body || "");
+    setEmailInlineImage(longPressedMail.inlineImage || "");
+
+    setLongPressedMail(null);
+    setShowCompose(true);
+  }}
+>
+  ✏️ Edit email
+</button>
+
+      <button
+        onClick={() => {
+          deleteEmail(longPressedMail.id);
+          setLongPressedMail(null);
+        }}
+      >
+        🗑️ Delete email
+      </button>
+
+      <button onClick={() => setLongPressedMail(null)}>
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
+
         {showCompose && (
   <div className="compose-modal">
     <div className="compose-box">
@@ -1092,6 +1525,13 @@ const [showHelp, setShowHelp] = useState(false);
         placeholder="Sender Email"
         value={emailAddress}
         onChange={(e) => setEmailAddress(e.target.value)}
+      />
+
+      <input
+       type="email"
+       placeholder="Receiver Email"
+       value={emailReceiver}
+       onChange={(e) => setEmailReceiver(e.target.value)}
       />
 
       <input
@@ -1144,6 +1584,37 @@ const [showHelp, setShowHelp] = useState(false);
 />
 
 <input
+  type="file"
+  accept="image/png,image/jpeg,image/webp"
+  onChange={(e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setEmailAvatarImage(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  }}
+/>
+
+{emailAvatarImage && (
+  <img
+    src={emailAvatarImage}
+    alt="Sender avatar"
+    style={{
+      width: "50px",
+      height: "50px",
+      borderRadius: "50%",
+      objectFit: "cover",
+      margin: "8px 16px"
+    }}
+  />
+)}
+
+<input
   type="text"
   placeholder="Color (e.g. #4285F4)"
   value={emailColor}
@@ -1155,6 +1626,31 @@ const [showHelp, setShowHelp] = useState(false);
         value={emailBody}
         onChange={(e) => setEmailBody(e.target.value)}
       />
+
+      <input
+  type="file"
+  accept="image/png,image/jpeg,image/webp"
+  onChange={(e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setEmailInlineImage(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  }}
+/>
+
+{emailInlineImage && (
+  <img
+    src={emailInlineImage}
+    alt="Email branding"
+    className="compose-inline-image"
+  />
+)}
 
       <button className="send-btn" onClick={addReceivedEmail}>
         Add to Inbox
@@ -1178,9 +1674,16 @@ const [showHelp, setShowHelp] = useState(false);
             <span className="sparkle">✦</span>
           </div>
 
-          <div className="profile">
-            S
-          </div>
+          <button
+  className="profile"
+  onClick={() => setShowProfileMenu(true)}
+>
+  {profilePhoto ? (
+    <img src={profilePhoto} alt="Profile" />
+  ) : (
+    profileInitial
+  )}
+</button>
 
         </header>
 
@@ -1190,18 +1693,47 @@ const [showHelp, setShowHelp] = useState(false);
 
         <main className="email-list">
 
-          {emails.map((mail) => (
-            <button
-              className="email-item"
-              key={mail.id}
-              onClick={() => openMail(mail)}
-            >
+  {emails.map((mail) => (
+    <button
+
+  className="email-item"
+  key={mail.id}
+  onClick={() => {
+    if (!longPressedMail) {
+      openMail(mail);
+    }
+    setLongPressedMail(null);
+  }}
+  onTouchStart={() => {
+    longPressTimer.current = setTimeout(() => {
+      setLongPressedMail(mail);
+    }, 700);
+  }}
+  onTouchEnd={() => {
+    clearTimeout(longPressTimer.current);
+  }}
+  onTouchMove={() => {
+    clearTimeout(longPressTimer.current);
+  }}
+>
 
               <div
                 className="avatar"
-                style={{ backgroundColor: mail.color }}
+                style={{
+                backgroundColor: mail.avatarImage
+                    ? "transparent"
+                    : mail.color,
+                }}
               >
-                {mail.initial}
+                {mail.avatarImage ? (
+                  <img
+                    src={mail.avatarImage}
+                    alt=""
+                    className="email-avatar-image"
+                  />
+                ) : (
+                  mail.initial
+                )}
               </div>
 
               <div className="email-info">
